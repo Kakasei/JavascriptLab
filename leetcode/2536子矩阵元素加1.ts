@@ -1,4 +1,5 @@
 // 暴力法
+// TODO可用前缀和+差分优化
 function rangeAddQueries(n: number, queries: number[][]): number[][] {
   // 初始化
   const matrix: number[][] = new Array(n);
