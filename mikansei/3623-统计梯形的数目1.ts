@@ -1,3 +1,7 @@
+// 这道题有两个注意点
+// 1.js的number只能准确表达10^16以内的整数，这道题最坏情况下会超，要用bigint存
+// 2.所有两数之积的累和问题，可以用前缀和优化复杂度
+// TODO抽空再做一遍
 function countTrapezoids(points: number[][]): number {
     const MOD = BigInt(1e9 + 7);
     let result = 0n;
