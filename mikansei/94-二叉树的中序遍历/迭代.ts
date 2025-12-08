@@ -1,3 +1,6 @@
+// 迭代写法，我似乎误打误撞写出了被称为颜色标记法的方法？
+// TODO这是二叉树的最基础题型，也是hot100题，一定要完全掌握
+
 /**
  * Definition for a binary tree node.
  * class TreeNode {
