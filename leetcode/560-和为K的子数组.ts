@@ -1,3 +1,5 @@
+// 前缀和+两数之和
+
 function subarraySum(nums: number[], k: number): number {
     const n = nums.length;
     // 前缀和数组

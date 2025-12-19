@@ -1,3 +1,6 @@
+// 递归问题要想到最小子问题，这道题的最小子问题可以分成数种情况然后分类讨论
+// 核心思路是将右子树拼到左子树，再将左子树移到右子树，并始终返回展平后的尾部
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
