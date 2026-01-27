@@ -9,23 +9,16 @@ function partitionLabels(s: string): number[] {
     for (let i = 0; i < n; i++) {
         const index = s[i].charCodeAt(0) - baseCode;
 
-        if (!arr[index]) {
-            arr[index] = -1;
-        } else {
-            arr[index] = i;
-        }
+        arr[index] = i;
     }
 
     let left = 0,
-        right = -Infinity;
+        right = 0;
     for (let i = 0; i < n; i++) {
         const index = s[i].charCodeAt(0) - baseCode;
 
         if (i === right) {
             result.push(right - left + 1);
-            left = i + 1;
-        } else if (i === left && arr[index] === -1) {
-            result.push(1);
             left = i + 1;
         } else {
             right = Math.max(right, arr[index]);
