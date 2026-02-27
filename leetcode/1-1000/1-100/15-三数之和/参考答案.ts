@@ -1,36 +1,40 @@
+// 排序数组，枚举x，求y和z，问题便转换为两数之和2
 function threeSum(nums: number[]): number[][] {
     const n = nums.length;
     nums.sort((a, b) => {
         return a - b;
     });
-    const answer = [];
+    const result = [];
 
     for (let i = 0; i < n - 2; i++) {
-        const target = nums[i];
-        if (nums[i - 1] === target) {
+        // 枚举x
+        const x = nums[i];
+        // 跳过重复的x
+        if (nums[i - 1] === x) {
             continue;
         }
-        if (target > 0) {
+        // 优化剪枝
+        if (x > 0) {
             break;
         }
-        let left = i + 1,
-            right = n - 1;
-        while (left < right) {
-            if (nums[left] + nums[right] + target > 0) {
-                right--;
-            } else if (nums[left] + nums[right] + target < 0) {
-                left++;
+        let j = i + 1,
+            k = n - 1;
+        while (j < k) {
+            if (nums[j] + nums[k] + x > 0) {
+                k--;
+            } else if (nums[j] + nums[k] + x < 0) {
+                j++;
             } else {
-                answer.push([nums[left], nums[right], target]);
+                result.push([nums[j], nums[k], x]);
                 do {
-                    left++;
-                } while (nums[left] === nums[left - 1]);
+                    j++;
+                } while (nums[j] === nums[j - 1]);
                 do {
-                    right--;
-                } while (nums[right] === nums[right + 1]);
+                    k--;
+                } while (nums[k] === nums[k + 1]);
             }
         }
     }
 
-    return answer;
+    return result;
 }
