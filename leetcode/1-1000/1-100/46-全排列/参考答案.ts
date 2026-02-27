@@ -1,27 +1,32 @@
 // TODO回溯基础题，hot100，需要完全掌握
 // 算是第一次接触这种排列问题吧，我们选择用队列记录还没参与排列的元素
+// 目前觉得这个版本的解法更容易理解
 
 function permute(nums: number[]): number[][] {
+    const n = nums.length;
     const result: number[][] = [];
+    // 当前的排列
     const path: number[] = [];
-    const queue: number[] = [...nums];
+    // 标记元素是否已经参与了排列
+    const flags = new Array(n).fill(false);
 
-    // 递归函数recursion(i)的含义是枚举第i个元素到第末尾n个元素的所有排列
-    const recursion = (i: number) => {
-        // 递归边界
-        if (i >= nums.length) {
+    // recursion(i)枚举第i到第n的所有排列
+    const recursion = (i: number = 0) => {
+        if (i === n) {
             result.push([...path]);
-        } else {
-            const length = queue.length;
-            for (let j = 0; j < length; j++) {
-                path.push(queue.shift() as number);
+            return;
+        }
+        for (let j = 0; j < n; j++) {
+            if (flags[j] === false) {
+                path.push(nums[j]);
+                flags[j] = true;
                 recursion(i + 1);
+                path.pop();
+                flags[j] = false;
             }
         }
-        // 回溯
-        queue.push(path.pop() as number);
     };
-    recursion(0);
+    recursion();
 
     return result;
 }
