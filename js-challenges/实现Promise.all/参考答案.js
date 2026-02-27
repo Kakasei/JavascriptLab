@@ -5,15 +5,15 @@ Promise._all = function (promises) {
             throw new TypeError("必须传入数组");
         }
 
-        const result = [];
-        let count = 0;
-        const length = promises.length;
-
+        const n = promises.length;
         // 2、边界情况，空数组直接兑现就行了
-        if (length === 0) {
+        if (n === 0) {
             resolve([]);
             return;
         }
+
+        let count = 0;
+        const result = [];
 
         // 3、并发启动所有Promise（速度极快地逐个启动，近似并发）
         promises.forEach((promise, index) => {
@@ -22,12 +22,14 @@ Promise._all = function (promises) {
                 .then((value) => {
                     result[index] = value;
                     count++;
-                    if (count === length) {
+                    if (count === n) {
                         resolve(result);
+                        return;
                     }
                 })
                 .catch((error) => {
                     reject(error);
+                    return;
                 });
         });
     });
