@@ -7,13 +7,14 @@
 // TODO
 function maxProfit(prices: number[]): number {
     let lowest = prices[0];
-    let profit = 0;
-    for (let i = 1; i < prices.length; i++) {
+    let maxProfit = 0;
+    const n = prices.length;
+    for (let i = 1; i < n; i++) {
         if (prices[i] < lowest) {
             lowest = prices[i];
         } else {
-            profit = Math.max(profit, prices[i] - lowest);
+            maxProfit = Math.max(maxProfit, prices[i] - lowest);
         }
     }
-    return profit;
+    return maxProfit;
 }
