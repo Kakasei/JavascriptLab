@@ -1,5 +1,5 @@
 {
-  "name": "kakasei-algorithm",
+  "name": "Kakasei_JS/TS_Lab",
   "version": "1.0.0",
   "description": "mikansei",
   "main": "index.js",
@@ -13,6 +13,6 @@
     "@datastructures-js/stack": "^3.1.6"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "oxfmt": "^0.65.0"
   }
 }
