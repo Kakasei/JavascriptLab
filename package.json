@@ -1,18 +1,22 @@
 {
-  "name": "Kakasei_JS/TS_Lab",
-  "version": "1.0.0",
-  "description": "mikansei",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@datastructures-js/priority-queue": "^6.3.5",
-    "@datastructures-js/stack": "^3.1.6"
-  },
-  "devDependencies": {
-    "oxfmt": "^0.65.0"
-  }
+    "name": "Kakasei_JS/TS_Lab",
+    "version": "1.0.0",
+    "description": "mikansei",
+    "license": "ISC",
+    "author": "",
+    "main": "index.js",
+    "scripts": {},
+    "dependencies": {
+        "@datastructures-js/priority-queue": "^6.4.0",
+        "@datastructures-js/stack": "^3.1.6"
+    },
+    "devDependencies": {
+        "oxfmt": "^0.65.0"
+    },
+    "devEngines": {
+        "packageManager": {
+            "name": "pnpm",
+            "onFail": "error"
+        }
+    }
 }
