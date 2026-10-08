@@ -1,9 +1,5 @@
 "use strict";
 
-let worker = function (x) {
-    console.log(x);
-};
-
 function debounceDecorator(fn, ms) {
     let timeoutID;
     return function wrapper(...args) {
@@ -16,12 +12,15 @@ function debounceDecorator(fn, ms) {
     };
 }
 
+let worker = function (x) {
+    console.log(x);
+};
+
 worker = debounceDecorator(worker, 1000);
 
 setTimeout(() => {
-    worker("不会被打印");
+    worker(50);
 }, 200);
-
 setTimeout(() => {
-    worker("会被打印");
+    worker(50);
 }, 500);
