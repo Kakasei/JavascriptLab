@@ -22,13 +22,7 @@ function orangesRotting(grid: number[][]): number {
                 for (const dir of DIRECTION) {
                     const k = i + dir[0],
                         l = j + dir[1];
-                    if (
-                        k >= 0 &&
-                        k < m &&
-                        l >= 0 &&
-                        l < n &&
-                        grid[k][l] === 1
-                    ) {
+                    if (k >= 0 && k < m && l >= 0 && l < n && grid[k][l] === 1) {
                         // 即将被感染的节点置为3，并入队
                         grid[k][l] = 3;
                         queue.push([k, l]);
